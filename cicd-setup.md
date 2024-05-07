@@ -12,3 +12,10 @@ az ad sp create-for-rbac --name "cicd for rukasakurai/azure-search-openai-demo"
 
 4. Write workflow yaml if it does not exist
 
+## Troubleshotting
+### azd up completes, but code deployement failed
+```
+[Error] Middleware: Failed to forward request to http://xxx.xxx.xxx.x:8000. Encountered a System.Net.Http.HttpRequestException exception after 220.561ms with message: Connection refused (xxx.xxx.xxx.x:8000). Check application logs to verify the application is properly handling HTTP traffic.
+...
+ModuleNotFoundError: No module named 'main'
+```
