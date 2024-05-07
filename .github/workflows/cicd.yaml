@@ -47,5 +47,6 @@ jobs:
 
         azd version
         azd show
+        az account set --subscription $AZURE_SUBSCRIPTION_ID
         azd up --no-prompt
         azd show
