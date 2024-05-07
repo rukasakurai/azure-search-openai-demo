@@ -48,4 +48,4 @@ jobs:
         azd up --no-prompt
         azd show
       env:
-        documentIntelligenceResourceGroupLocation: : ${{ vars.AZURE_LOCATION }}
+        documentIntelligenceResourceGroupLocation: ${{ vars.AZURE_LOCATION }}
