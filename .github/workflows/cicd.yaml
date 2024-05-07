@@ -28,9 +28,9 @@ jobs:
       
     - name: azd auth login
       run: |
-        $AZURE_CREDENTIALS = $Env:AZURE_CREDENTIALS | ConvertFrom-Json -AsHashtable;
-        $AZURE_CLIENT_ID = $($AZURE_CREDENTIALS.clientId)
-        $AZURE_TENANT_ID = $($AZURE_CREDENTIALS.AZURE_TENANT_ID)
+        AZURE_CREDENTIALS=$(echo "$AZURE_CREDENTIALS" | jq -r '.')
+        AZURE_CLIENT_ID=$(echo "$AZURE_CREDENTIALS" | jq -r '.clientId')
+        AZURE_TENANT_ID=$(echo "$AZURE_CREDENTIALS" | jq -r '.tenantId')
         
         azd auth login `
           --client-id $AZURE_CLIENT_ID `
