@@ -25,17 +25,6 @@ jobs:
       uses: azure/login@v2
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
-      
-    - name: azd auth login
-      run: |
-        AZURE_CREDENTIALS=$(echo "$AZURE_CREDENTIALS" | jq -r '.')
-        AZURE_CLIENT_ID=$(echo "$AZURE_CREDENTIALS" | jq -r '.clientId')
-        AZURE_TENANT_ID=$(echo "$AZURE_CREDENTIALS" | jq -r '.tenantId')
-        
-        azd auth login `
-          --client-id $AZURE_CLIENT_ID `
-          --federated-credential-provider "github" `
-          --tenant-id $AZURE_TENANT_ID
 
     - name: azd auth login
       run: |
