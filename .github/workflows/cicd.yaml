@@ -45,7 +45,5 @@ jobs:
       run: |
         azd version
         azd show
-        azd up --no-prompt
+        azd up --no-prompt --parameters documentIntelligenceResourceGroupLocation="westeurope"
         azd show
-      env:
-        documentIntelligenceResourceGroupLocation: ${{ vars.AZURE_LOCATION }}
