@@ -27,12 +27,12 @@ jobs:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
       
     - name: azd auth login
-        run: |
-          $AZURE_CREDENTIALS = $Env:AZURE_CREDENTIALS | ConvertFrom-Json -AsHashtable;
-          $AZURE_CLIENT_ID = $($AZURE_CREDENTIALS.clientId)
-          $AZURE_TENANT_ID = $($AZURE_CREDENTIALS.AZURE_TENANT_ID)
-          
-          azd auth login `
-            --client-id $AZURE_CLIENT_ID `
-            --federated-credential-provider "github" `
-            --tenant-id $AZURE_TENANT_ID
+      run: |
+        $AZURE_CREDENTIALS = $Env:AZURE_CREDENTIALS | ConvertFrom-Json -AsHashtable;
+        $AZURE_CLIENT_ID = $($AZURE_CREDENTIALS.clientId)
+        $AZURE_TENANT_ID = $($AZURE_CREDENTIALS.AZURE_TENANT_ID)
+        
+        azd auth login `
+          --client-id $AZURE_CLIENT_ID `
+          --federated-credential-provider "github" `
+          --tenant-id $AZURE_TENANT_ID
