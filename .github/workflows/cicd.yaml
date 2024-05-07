@@ -28,10 +28,10 @@ jobs:
 
     - name: azd auth login
       run: |
-        AZURE_CREDENTIALS=$(echo "$AZURE_CREDENTIALS" | jq -r '.')
         AZURE_CLIENT_ID=$(echo "$AZURE_CREDENTIALS" | jq -r '.clientId')
         AZURE_TENANT_ID=$(echo "$AZURE_CREDENTIALS" | jq -r '.tenantId')
         AZURE_CLIENT_SECRET=$(echo "$AZURE_CREDENTIALS" | jq -r '.clientSecret')
+        AZURE_SUBSCRIPTION_ID=$(echo "$AZURE_CREDENTIALS" | jq -r '.subscriptionId')
         
         azd version
 
@@ -43,6 +43,8 @@ jobs:
 
     - name: azd up
       run: |
+        AZURE_SUBSCRIPTION_ID=$(echo "$AZURE_CREDENTIALS" | jq -r '.subscriptionId')
+
         azd version
         azd show
         azd up --no-prompt
