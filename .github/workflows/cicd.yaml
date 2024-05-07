@@ -45,5 +45,5 @@ jobs:
       run: |
         azd version
         azd show
-        azd up --no-prompt --parameters documentIntelligenceResourceGroupLocation="westeurope"
+        azd up --no-prompt
         azd show

@@ -81,7 +81,7 @@ param documentIntelligenceResourceGroupName string = '' // Set in main.parameter
     type: 'location'
   }
 })
-param documentIntelligenceResourceGroupLocation string
+param documentIntelligenceResourceGroupLocation string = 'westeurope'
 
 param documentIntelligenceSkuName string // Set in main.parameters.json
 
