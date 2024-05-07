@@ -39,3 +39,9 @@ jobs:
         
         azd show
 
+    - name: azd up
+      run: |
+        azd version
+        azd show
+        azd up --no-prompt
+        azd show
