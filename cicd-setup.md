@@ -4,13 +4,32 @@ Run below and note JSON output
 az ad sp create-for-rbac --name "cicd for rukasakurai/azure-search-openai-demo"
 ```
 
-2. Save noted JSON in GitHub Secret
+JSON output will look like the below
+```
+{
+  "appId": "***",
+  "displayName": "***",
+  "password": "***",
+  "tenant": "***"
+}
+```
+
+2. Save the following JSON in a GitHub Secret named `AZURE_CREDENTIALS`
+```
+{
+    "clientSecret":  <'password' from the JSON output of az ad sp create-for-rbac>,
+    "subscriptionId":  <Azure Subscription ID>,
+    "tenantId":  <'tenant' from the JSON output of az ad sp create-for-rbac>,
+    "clientId":  <'appId' from the JSON output of az ad sp create-for-rbac>
+}
+```
 
 3. Assign roles to Service Principal
 - Contributor
 - Role Based Access Control Administrator
 
 4. Write workflow yaml if it does not exist
+Use .github/workflows/cicd.yaml or write your own
 
 ## Troubleshotting
 ### azd up completes, but code deployement failed
